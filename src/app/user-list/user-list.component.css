@@ -1,0 +1,6 @@
+.panel-heading{
+    font-weight: 700;
+}
+table, table th, table td{
+    transition: 1s all ease;
+}

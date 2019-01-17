@@ -1,0 +1,48 @@
+<h1>User List</h1>
+<div class="form-group">
+  <label>Filter By:</label>
+  <label class="radio-inline">
+    <input type="radio" name="filterby" value="name" [(ngModel)]="filterby">
+    Name
+  </label>
+  <label class="radio-inline">
+    <input type="radio" name="filterby" value="email" [(ngModel)]="filterby">
+    Email
+  </label>
+  <label class="radio-inline">
+    <input type="radio" name="filterby" value="company" [(ngModel)]="filterby">
+    Company
+  </label>
+</div>
+<div class="form-inline">
+  <label for="search">Search by {{filterby}}:</label>
+  <input name="search" style="width:300px" type="text" class="form-control" placeholder="Search by {{filterby}}"
+    [(ngModel)]="searchTerm" />
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Website</th>
+      <th>Company</th>
+      <th>Address</th>
+      <th *ngIf="!hideActions">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr [ngClass]="{'active': (i%2 != 0)}" *ngFor="let user of users | userFilter: searchTerm : filterby; let i = index">
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.phone}}</td>
+      <td>{{user.website}}</td>
+      <td>{{user.company.name}}</td>
+      <td>{{user.address.city}}<a href="https://www.google.com/maps/search/?api=1&query={{user.address.geo.lat}},{{user.address.geo.lng}}"
+          target="_balnk"><span class="glyphicon glyphicon-map-marker"></span></a></td>
+      <td *ngIf="!hideActions"><button class="btn btn-primary" (click)="updateUser(user.id)">Edit <span class="glyphicon glyphicon-pencil "></span></button>
+        <button class="btn btn-danger" (click)="deleteUser(user.id, i)">Delete
+          <span class="glyphicon glyphicon-trash"></span></button></td>
+    </tr>
+  </tbody>
+</table>

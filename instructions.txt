@@ -1,0 +1,11 @@
+- Create list of employee list with fields Name, Email, Phone, Website, Company and  Address with small map image using geo location and action 
+
+(Edit & Delete)
+ - Data should be fetch from https://jsonplaceholder.typicode.com/users and render into the above list.
+ - There should be 1 filter which would filter the list as per search their Name, Email and Company Name.
+ - On click of Edit button go to new page which will have form with following fields map at the top full screen and below that Name, Email, Phone, Website, Company and  Address
+  - In these fields the data should be retrieve from list which you clicked for edit.
+  - On Save button form should be submitted and redirect to Home page and list should be updated.
+  - On Cancel button redirect to Home page.
+ - On click of Delete button show confirmation pop up with confirm Message and Ok & Cancel button then list should be deleted and table will update.
+ - On Home page create 1 button for add new list which will redirect to add new record page - and the form and behavior should be same as Edit page but it will only create new employee record.
